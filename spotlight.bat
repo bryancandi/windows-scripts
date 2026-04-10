@@ -3,7 +3,6 @@
 :: Files are named: spotlight_i++.jpg
 
 @echo off
-
 setlocal enabledelayedexpansion
 
 set "src=%APPDATA%\Microsoft\Windows\Themes\TranscodedWallpaper"
@@ -18,6 +17,8 @@ if exist "!file!" (
     goto loop
 )
 
+echo Copying Windows Spotlight wallpaper from %src%
 copy "%src%" "!file!"
-
 echo Saved as !file!
+
+pause
