@@ -1,5 +1,6 @@
 :: Copy the current Windows 11 desktop spotlight wallpaper to user directory.
-:: Default save directory: C:\Users\User\Pictures\Spotlight
+:: Default save directory: %USERPROFILE%\Pictures\Spotlight
+:: If directory is not found try OneDrive path.
 :: Files are named: spotlight_i++.jpg
 
 @echo off
@@ -7,6 +8,10 @@ setlocal enabledelayedexpansion
 
 set "src=%APPDATA%\Microsoft\Windows\Themes\TranscodedWallpaper"
 set "dest=%USERPROFILE%\Pictures\Spotlight"
+if not exist "%dest\%" (
+    echo Using OneDrive path...
+    set "dest=%USERPROFILE%\OneDrive\Pictures\Spotlight"
+)
 
 set i=1
 
