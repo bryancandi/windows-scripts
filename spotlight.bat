@@ -13,13 +13,13 @@ if not exist "%src%" (
 
 set "dest=%USERPROFILE%\Pictures\Spotlight"
 if exist "%dest%" (
-    echo Using default Pictures path...
+    echo Using local Pictures path . . .
     goto continue
 )
 
 set "dest=%USERPROFILE%\OneDrive\Pictures\Spotlight"
 if exist "%dest%" (
-    echo Using OneDrive path...
+    echo Using OneDrive path . . .
     goto continue
 )
 
@@ -35,9 +35,13 @@ if exist "!file!" (
     goto loop
 )
 
-echo Copying Windows Spotlight wallpaper from %src%
+echo.
+echo Copying Windows Spotlight wallpaper from source:
+echo %src%
 copy "%src%" "!file!"
-echo Saved as !file!
+echo.
+echo Wallpaper saved at destination:
+echo !file!
 goto done
 
 :src_not_found
@@ -49,4 +53,5 @@ echo Pictures directory not found on this system. Exiting.
 goto done
 
 :done
+echo.
 pause
